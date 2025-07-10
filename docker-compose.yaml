@@ -1,12 +1,15 @@
 services:
   php:
-    image: php:8.3-apache
+    image: php-evenementiel-nevers:v1
     container_name: backend_evenementiel_nevers
     ports:
       - '8084:80' # on définit le port pour accéder à l'application (localhost:8000) - incrémenter si le port est déjà utilisé par un autre projet
     volumes:
       - ./backend:/var/www/html # on monte le dossier courant dans le dossier /var/www/html du container
-      - ./data/geojson:/var/www/html/geojson
+      - ./data:/var/www/html/data
+    build:
+      context: .
+      dockerfile: Dockerfile
 
   db:
     image: postgis/postgis:15-3.3
@@ -25,7 +28,7 @@ services:
       - '5434:5432' #  incrémenter si le port est déjà utilisé par un autre projet
   pgadmin:
     image: dpage/pgadmin4
-    container_name: lyon_autrement_pgadmin
+    container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
