@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-$json = file_get_contents(__DIR__ . '/data/users/users_cleaned.json'); 
+$json = file_get_contents(__DIR__ . '/../data/users/users_cleaned.json'); 
 $data = json_decode($json, true);
 
 if(!$data || !is_array($data)){

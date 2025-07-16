@@ -11,4 +11,4 @@ try{
     die("erreur de connexion : " . $e->getMessage());
 };
 
-echo "la base de données est connectée"; 
+// echo "la base de données est connectée"; 

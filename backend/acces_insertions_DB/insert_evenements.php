@@ -2,7 +2,7 @@
 
 require_once 'db.php'; 
 
-$base_path = __DIR__ . '/data/geojson/';
+$base_path = __DIR__ . '/../data/geojson/';
 
 // $base_path : où aller chercher les fichiers 
 
