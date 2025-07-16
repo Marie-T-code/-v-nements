@@ -21,6 +21,7 @@ CREATE TABLE users (
     prenom TEXT NOT NULL, 
     genre TEXT CHECK(genre IN ('female', 'male', 'other')),
     email TEXT NOT NULL UNIQUE, 
+    mot_de_passe TEXT,
     telephone TEXT, 
     -- téléphones toujours en texte, INTEGER suprimme les 0 et enpêche les espaces et les +33 etc.
     is_admin BOOLEAN DEFAULT false
