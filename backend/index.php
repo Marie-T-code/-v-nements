@@ -15,7 +15,17 @@
 </head>
 
 <body>
-
+<header>
+    <div class="login">
+       <?php if (!isset($_SESSION['email'])): ?>
+            <a class="login-btn" href="login_logout/login.php">Se connecter</a>
+        <?php else: ?>
+            <p> Bienvenue <?= htmlspecialchars($_SESSION['prenom'])?> !</p>
+            <?php if ($_SESSION['is_admin']) echo "<p>Vous êtes administrateur.rice</p>"; ?>
+            <a class="logout-btn" href="login_logout/logout.php">Déconnexion</a>
+        <?php endif; ?>
+    </div>
+</header>
 
 
 <div id="map">
