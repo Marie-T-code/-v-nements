@@ -18,6 +18,9 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(['user_id' => $user_id]);
 $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+echo"<h2>Mes inscriptions aux événements</h2>
+<p><a href='../index.php'>← Retour à l'accueil</a></p>"; 
+
 if (count($evenements) === 0) {
     echo "<p>Vous n'êtes inscrit à aucun événement.</p>";
 } else {
@@ -29,7 +32,7 @@ if (count($evenements) === 0) {
         echo "<td>" . htmlspecialchars($event['description']) . "</td>";
         echo "<td>" . htmlspecialchars($event['dates']) . "</td>";
         echo "<td>" . htmlspecialchars($event['nb_places']) . "</td>";
-        echo "<td>" . htmlspecialchars($event['date_inscription']) . "</td>";
+        echo "<td>" . date('d/m/Y', strtotime($event['date_inscription'])) . "</td>";
         echo "</tr>";
     }
     echo "</table>";

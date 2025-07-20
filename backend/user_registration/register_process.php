@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../acces_insertions_DB/db.php';
 
 // récupération et nettoyage des données 
@@ -17,6 +16,14 @@ $mot_de_passe = $_POST['mot_de_passe'] ?? '';
 if (empty($prenom) || empty($nom) || empty($email) || empty($mot_de_passe)){
     header("Location: register.php?error=1"); 
     exit; 
+}
+
+
+// validation de l'email 
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: register.php?error=1");
+    exit;
 }
 
 // valider que le genre est correct 

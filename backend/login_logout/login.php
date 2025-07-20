@@ -23,12 +23,12 @@ if(isset($_SESSION ['email'])) {
 <!-- si mauvais identifiants, afficher un message d'erreur simple  -->
 
 <?php if (isset($_GET['error'])): ?>
-    <p class="message-error"> Identifiants incorrects</p>
+    <p class="message-error"> Identifiants incorrects, veuillez réessayer.</p>
 <?php endif; ?>
 
  <form action="login_process.php" method="POST">
     <label for="email">Adresse email :</label><br>
-    <input type="email" id="email" name="email" id="email" placeholder="email" required/><br>
+    <input type="email" name="email" id="email" placeholder="email" required/><br>
 
     <label for="mot_de_passe"> Mot de passe :</label><br>
     <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="mot de passe" required /><br>

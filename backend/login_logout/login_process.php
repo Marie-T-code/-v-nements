@@ -30,7 +30,7 @@ if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
     $_SESSION['prenom'] = $user['prenom'];
     $_SESSION['nom'] = $user['nom'];
     $_SESSION['genre'] = $user['genre'];
-    $_SESSION['is_admin'] = $user['is_admin'];
+    $_SESSION['is_admin'] = filter_var($user['is_admin'], FILTER_VALIDATE_BOOLEAN);
 
     // rediriger vers la page principale 
     header('Location: ../index.php');
