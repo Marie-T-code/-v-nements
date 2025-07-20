@@ -52,6 +52,7 @@ fetch('/JS_leaflet/fetch_evenements.php')
                 <p>${description}</p>
                 <p>${dates}</p>
                 ${imgHTMLPhoto}
+                <a href="/inscriptions_event/inscription.php?slug=${props.slug}">S'inscrire à cet événement</a>
                 </div>
             `;
 

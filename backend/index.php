@@ -18,7 +18,8 @@
 <header>
     <div class="login">
        <?php if (!isset($_SESSION['email'])): ?>
-            <a class="login-btn" href="login_logout/login.php">Se connecter</a>
+            <a class="login-btn" href="login_logout/login.php">Se connecter</a><br>
+            <a href="user_registration/register.php" class="login-btn">S'enregistrer</a>
         <?php else: ?>
             <p> Bienvenue <?= htmlspecialchars($_SESSION['prenom'])?> !</p>
             <?php if ($_SESSION['is_admin']) echo "<p>Vous êtes administrateur.rice</p>"; ?>
