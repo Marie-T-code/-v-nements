@@ -22,6 +22,7 @@
             <a href="user_registration/register.php" class="login-btn">S'enregistrer</a>
         <?php else: ?>
             <p> Bienvenue <?= htmlspecialchars($_SESSION['prenom'])?> !</p>
+            <a href="/users/mes_evenents.php">Mes évènements</a>
             <?php if ($_SESSION['is_admin']) echo "<p>Vous êtes administrateur.rice</p>"; ?>
             <a class="logout-btn" href="login_logout/logout.php">Déconnexion</a>
         <?php endif; ?>

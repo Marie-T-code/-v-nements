@@ -28,7 +28,7 @@ try {
         'evenement_id' => $evenement_id,
         'nb_places' => $nb_places
     ]);
-    echo "Inscription réussie ! <a href='../mes_evenements.php'> Voir mes évènements </a>";
+    echo "Inscription réussie ! <a href='../user/mes_evenements.php'> Voir mes évènements </a>";
 } catch (PDOException $e) {
     echo "Erreur lors de l'inscription : "
         . $e->getMessage();

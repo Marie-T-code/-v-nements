@@ -30,8 +30,8 @@ fetch('/JS_leaflet/fetch_evenements.php')
     
     
     const geojsonLayer = L.geoJSON(data, {
-        pointToLayer: function(feature, Latlng){
-            return L.marker(Latlng);
+        pointToLayer: function(feature, latlng){
+            return L.marker(latlng);
         }, 
 
         onEachFeature: function (feature, layer){
@@ -39,6 +39,7 @@ fetch('/JS_leaflet/fetch_evenements.php')
             const description = feature.properties.description || ''; 
             const dates = feature.properties.dates || 'aucune date fournie'; 
             const photo = feature.properties.image || 'inconnu'; 
+            const slug = feature.properties.slug || 666; 
 
             let imgHTMLPhoto = ''; 
             if (photo && photo !== 'inconnu') {
@@ -52,7 +53,7 @@ fetch('/JS_leaflet/fetch_evenements.php')
                 <p>${description}</p>
                 <p>${dates}</p>
                 ${imgHTMLPhoto}
-                <a href="/inscriptions_event/inscription.php?slug=${props.slug}">S'inscrire à cet événement</a>
+                <a href="/inscriptions_event/inscriptions.php?slug=${slug}">S'inscrire à cet événement</a>
                 </div>
             `;
 

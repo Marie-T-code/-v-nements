@@ -16,7 +16,7 @@ if(!$slug){
 
 // récupérer l'évènement à partir du slug 
 
-$sql = "SELECT id, nom FROM evenements WHERE slug = :slug"; 
+$sql = "SELECT id, titre FROM evenements WHERE slug = :slug"; 
 $stmt = $pdo->prepare($sql); 
 $stmt-> execute(['slug' => $slug]); 
 $evenement = $stmt->fetch(PDO::FETCH_ASSOC); 
@@ -27,7 +27,7 @@ if(!$evenement){
 }
 ?>
 
-<h2>S'inscrire à <?= htmlspecialchars($evenement['nom']) ?></h2>
+<h2>S'inscrire à <?= htmlspecialchars($evenement['titre']) ?></h2>
 
 <form action="traitement_inscriptions.php" method="POST">
     <!-- (même si on utilise le slug pour l'url, on passe l'id de l'event) -->
